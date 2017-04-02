@@ -38,6 +38,9 @@
         <script type="text/javascript" src="https://oss.maxcdn.com/jquery/2.2.2/jquery.min.js"></script>
         <script type="text/javascript" src="https://oss.maxcdn.com/semantic-ui/2.1.8/components/transition.min.js"></script>
 
+        {% for file in layout.additional_js %}
+            <script type="text/javascript" src="{% if file contains '://' %}{{ file }}{% else %}/js/{{ file }}.js{% endif %}"></script>
+        {% endfor %}
         {% for file in page.additional_js %}
             <script type="text/javascript" src="{% if file contains '://' %}{{ file }}{% else %}/js/{{ file }}.js{% endif %}"></script>
         {% endfor %}
